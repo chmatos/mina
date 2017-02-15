@@ -55,6 +55,18 @@ namespace :rails do
     command %{#{fetch(:rake)} db:rollback}
   end
 
+  desc 'AfterParty update database'
+  task :after_party_run do
+    comment %{Updating database}
+    command %{#{fetch(:rake)} after_party:run}
+  end
+
+  desc 'AfterParty show informations'
+  task :after_party_show do
+    comment %{Updating database}
+    command %{#{fetch(:rake)} after_party:show}
+  end
+
   desc 'Precompiles assets (skips if nothing has changed since the last release).'
   task :assets_precompile do
     if fetch(:force_asset_precompile)
